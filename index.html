@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Jquery plugin template</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="logging.js"></script>
+  </head>
+  <body>
+    <h1>jQuery plugin template</h1>
+
+    <h2>Use default options</h2>
+    <div>
+      <input type="text" class="default" />
+      <input type="text" class="default" />
+      <button id="stop">Stop</button>
+    </div>
+
+    <h2>Indicate options on initializing</h2>
+    <div>
+      <input type="text" class="option" />
+    </div>
+
+    <h2>Indicate options with data attributes</h2>
+    <div>
+      <input type="text" class="data-attributes" data-label="+CHANGED+" />
+    </div>
+
+    <script type="text/javascript">
+      var $inputs = $('.default').logging();
+      $('#stop').on('click', function(e) {
+        $inputs.logging('off');
+      });
+
+      $('.option').logging({
+        label: '!!!changed!!!',
+      });
+
+      $('.data-attributes').logging();
+    </script>
+  </body>
+</html>
